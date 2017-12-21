@@ -33,7 +33,7 @@ namespace AutomationWS.PageObjects.Client
         {
             ddIcon.waitAndClick();
             //Thread.Sleep(5000);
-            propertiesCollection.driver.Manage().Timeouts().ImplicitWait(TimeSpan.FromSeconds(10);// (10, TimeUnit.SECONDS);
+            propertiesCollection.driver.Manage().Timeouts().ImplicitWait=TimeSpan.FromSeconds(10);// (10, TimeUnit.SECONDS);
             IWebElement cell = propertiesCollection.driver.FindElement(By.XPath(".//*[@id='divFullList']/div/table/tbody/tr[2]/td[2]"));
             //cell.WaitForElementToBeClickable();
             cell.Click();
