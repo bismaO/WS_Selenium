@@ -63,12 +63,16 @@ namespace AutomationWS.PageObjects.Expense
                 va.waitAndClick();
                 // txtELDescription.Clear();
                 //txtELDescription.EnterData(setMethods.randomDataGeneration(10));
-                txtUnits.Clear();
+                txtUnits.Click();
+                waitMethods.WaitForAjax();
+                //txtUnits.Clear();
                 txtUnits.EnterData(units);
-                txtCost.Clear();
+                txtCost.Click();
+                //waitMethods.WaitForAjax();
+                //txtCost.Clear();
                 txtCost.EnterData(Cost);
-                txtELDescription.Clear();
-                txtELDescription.EnterData(setMethods.randomDataGeneration(10));
+                //txtELDescription.Clear();
+                //txtELDescription.EnterData(setMethods.randomDataGeneration(10));
             }
             else if (cmbViewBy.GetAttribute("value") == "Project")
             {

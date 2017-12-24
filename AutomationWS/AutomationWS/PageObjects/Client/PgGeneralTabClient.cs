@@ -31,11 +31,9 @@ namespace AutomationWS.PageObjects.Client
         }
         public void setManager()//string manager)
         {
-            ddIcon.waitAndClick();
-            //Thread.Sleep(5000);
+            ddIcon.Click();
             propertiesCollection.driver.Manage().Timeouts().ImplicitWait=TimeSpan.FromSeconds(10);// (10, TimeUnit.SECONDS);
             IWebElement cell = propertiesCollection.driver.FindElement(By.XPath(".//*[@id='divFullList']/div/table/tbody/tr[2]/td[2]"));
-            //cell.WaitForElementToBeClickable();
             cell.Click();
             propertiesCollection.driver.SwitchTo().Alert().Accept();
         }
