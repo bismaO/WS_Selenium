@@ -32,6 +32,11 @@ namespace AutomationWS.PageObjects.Project
         public void setClient(string client)
         {
             txtClient.EnterData(client);
+            IWebElement e = propertiesCollection.driver.FindElement(By.XPath("//*[@id='lstItem0']"));
+            waitMethods.WaitForLoad();
+            e.Click();
+            waitMethods.WaitForAjax();
+
         }
         public void setManager(string manager)
         {

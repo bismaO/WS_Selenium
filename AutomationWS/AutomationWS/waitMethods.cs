@@ -35,7 +35,18 @@ namespace AutomationWS
                     break;
                 }
                 Thread.Sleep(100);
-            }
+        }
+        }
+
+        public static void WaitForLoad()
+        {
+
+            WebDriverWait wait = new WebDriverWait(propertiesCollection.driver, TimeSpan.FromSeconds(60));
+            wait.Until(fun =>
+           {
+               return (bool)((IJavaScriptExecutor)propertiesCollection.driver).ExecuteScript("return document.readyState").Equals("complete");
+           });
+            
         }
     }
 }
