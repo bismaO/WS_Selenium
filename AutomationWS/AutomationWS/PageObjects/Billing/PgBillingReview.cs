@@ -62,11 +62,10 @@ namespace AutomationWS.PageObjects.Billing
                 btnCancel.waitAndClick();
                 propertiesCollection.driver.SwitchTo().Window(mainWindow);
                 propertiesCollection.driver.SwitchTo().Frame("f1");
-                Thread.Sleep(5000);
-                chckbxBill.Click();
+                Thread.Sleep(2000);
+                chckbxBill.waitAndClick();
                 btnProcess.Navigate();
-                Thread.Sleep(1500);
-                lnkProcess.Click();
+                lnkProcess.waitAndClick();
             }
 
         //}

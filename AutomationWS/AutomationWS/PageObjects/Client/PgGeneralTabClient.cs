@@ -21,7 +21,7 @@ namespace AutomationWS.PageObjects.Client
         [FindsBy(How = How.Id, Using = "imgListCli")]
         public IWebElement ddIcon { get; set; }
 
-        [FindsBy(How = How.XPath, Using = ".//*[@id='divFullList']/div/table/tbody/tr[2]/td[1]")]
+        [FindsBy(How = How.XPath, Using = ".//*[@id='divFullList']/div/table/tbody/tr[2]/td[2]")]
         public IWebElement row { get; set; }
         
 
@@ -32,9 +32,7 @@ namespace AutomationWS.PageObjects.Client
         public void setManager()//string manager)
         {
             ddIcon.Click();
-            propertiesCollection.driver.Manage().Timeouts().ImplicitWait=TimeSpan.FromSeconds(10);// (10, TimeUnit.SECONDS);
-            IWebElement cell = propertiesCollection.driver.FindElement(By.XPath(".//*[@id='divFullList']/div/table/tbody/tr[2]/td[2]"));
-            cell.Click();
+            row.waitAndClick();            
             propertiesCollection.driver.SwitchTo().Alert().Accept();
         }
 

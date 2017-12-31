@@ -44,28 +44,27 @@ namespace AutomationWS.PageObjects.Time
 
         [FindsBy(How = How.Id, Using = "lstcmbEmp1")]
         public IWebElement ddIcon { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='lstItem0']")]
+        public IWebElement ActivityValue { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='lstItem0']")]
+        public IWebElement EmpValue { get; set; }
+
         
+
 
         public void setRequiredFields(string Emp, string Pro, string hrs)
         {
             if(cmbViewBy.GetAttribute("value")=="Employee")
             {
                 txtEmpPro.Clear();
-                txtEmpPro.SendKeys(Emp);
-                //ddIcon.Click();
-                //IWebElement ve = propertiesCollection.driver.FindElement(By.XPath("//*[@id='divFullList']/div/table/tbody/tr[2]/td[2]"));
-                //ve.waitAndClick();
-                //txtEmpPro.EnterData(Emp);
+                txtEmpPro.EnterData(Emp);
+                EmpValue.waitAndClick();
                 txtQEDate.EnterData(DateTime.Now.ToString());
-                //txtQEProEmp.waitAndClick();
-                //IWebElement vp = propertiesCollection.driver.FindElement(By.XPath("//*[@id='lstItem0']"));
-                //vp.waitAndClick();
                 txtQEProEmp.EnterData(Pro);
-                Thread.Sleep(2000);
                 txtQEActivity.waitAndClick();
-                Thread.Sleep(5000);       
-                IWebElement va = propertiesCollection.driver.FindElement(By.XPath("//*[@id='lstItem0']"));
-                va.waitAndClick();
+                ActivityValue.waitAndClick();
                 txtQEDescription.Clear();
                 txtQEDescription.EnterData(setMethods.randomDataGeneration(10));
                 txtQEAHrs.EnterData(hrs);
@@ -74,19 +73,10 @@ namespace AutomationWS.PageObjects.Time
             {
                 txtEmpPro.Clear();
                 txtEmpPro.SendKeys(Pro);
-                //ddIcon.Click();
-                //IWebElement ve = propertiesCollection.driver.FindElement(By.XPath("//*[@id='divFullList']/div/table/tbody/tr[2]/td[2]"));
-                //ve.waitAndClick();
-                //txtEmpPro.EnterData(Emp);
                 txtQEDate.EnterData(DateTime.Now.ToString());
-                //txtQEProEmp.waitAndClick();
-                //IWebElement vp = propertiesCollection.driver.FindElement(By.XPath("//*[@id='lstItem0']"));
-                //vp.waitAndClick();
                 txtQEProEmp.EnterData(Emp);
                 txtQEActivity.Click();
-                Thread.Sleep(1100);
-                IWebElement va = propertiesCollection.driver.FindElement(By.XPath("//*[@id='lstItem0']"));
-                va.waitAndClick();
+                ActivityValue.waitAndClick();
                 txtQEDescription.Clear();
                 txtQEDescription.EnterData(setMethods.randomDataGeneration(10));
                 txtQEAHrs.EnterData(hrs);

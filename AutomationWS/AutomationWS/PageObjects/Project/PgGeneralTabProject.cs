@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutomationWS.PageObjects.Project
@@ -19,6 +20,9 @@ namespace AutomationWS.PageObjects.Project
         [FindsBy(How = How.Id, Using = "txtClientAjax")]
         public IWebElement txtClient { get; set; }
 
+        [FindsBy(How=How.XPath,Using = "//*[@id='lstItem0']")]
+        public IWebElement clientValue { get; set; }
+
         [FindsBy(How = How.Id, Using = "txtMangr")]
         public IWebElement txtProjectManager { get; set; }
 
@@ -32,10 +36,9 @@ namespace AutomationWS.PageObjects.Project
         public void setClient(string client)
         {
             txtClient.EnterData(client);
-            IWebElement e = propertiesCollection.driver.FindElement(By.XPath("//*[@id='lstItem0']"));
-            waitMethods.WaitForLoad();
-            e.Click();
-            waitMethods.WaitForAjax();
+            //Thread.Sleep(2000);
+            clientValue.waitAndClick();
+            //waitMethods.WaitForAjax();
 
         }
         public void setManager(string manager)

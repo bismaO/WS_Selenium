@@ -14,8 +14,8 @@ namespace AutomationWS
         public static void WaitForElementToBeClickable(this IWebElement element)
         {
 
-            var wait = new WebDriverWait(propertiesCollection.driver, TimeSpan.FromSeconds(60));
-            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            var wait = new WebDriverWait(propertiesCollection.driver, TimeSpan.FromSeconds(120));
+            //wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
             wait.Until(ExpectedConditions.ElementToBeClickable(element));
             //WebDriverWait wait = new WebDriverWait(, TimeSpan.FromSeconds(200));
             //wait.Until(fun => element.Displayed && element.Enabled );

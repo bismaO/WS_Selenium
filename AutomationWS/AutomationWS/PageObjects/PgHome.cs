@@ -51,8 +51,8 @@ namespace AutomationWS.PageObjects
         {
             propertiesCollection.driver.SwitchTo().DefaultContent();
             list.Navigate();
-            Thread.Sleep(600);
-            screen.Click();
+            //Thread.Sleep(600);
+            screen.waitAndClick();
             propertiesCollection.driver.SwitchTo().Frame("f1");            
             
         }

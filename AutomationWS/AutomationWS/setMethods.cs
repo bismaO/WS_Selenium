@@ -24,6 +24,9 @@ namespace AutomationWS
         public static void waitAndClick(this IWebElement element)
         {
             element.WaitForElementToBeClickable();
+            //var wait = new WebDriverWait(propertiesCollection.driver, TimeSpan.FromSeconds(120));
+            //wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+            //wait.Until(ExpectedConditions.ElementToBeClickable(element));
             element.Click();
         }
         public static void Navigate(this IWebElement elementToHover )

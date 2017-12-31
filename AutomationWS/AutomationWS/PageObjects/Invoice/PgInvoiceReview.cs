@@ -28,8 +28,7 @@ namespace AutomationWS.PageObjects.Invoice
             }            
             txtProject.Clear();
             txtProject.EnterData(pro);
-            Thread.Sleep(2000);
-            btnRefresh.Click();
+            btnRefresh.waitAndClick();
         }
     }
 }

@@ -47,32 +47,34 @@ namespace AutomationWS.PageObjects.Expense
         [FindsBy(How = How.Id, Using = "lstExpense")]
         public IWebElement ddIconExpense { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//*[@id='divFullList']/div/table/tbody/tr[2]/td[2]")]
+        public IWebElement ExpenseValue { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//*[@id='lstItem0']")]
+        public IWebElement EmpValue { get; set; }
+
+
+
 
         public void setRequiredFields(string Emp, string Pro, string units, string Cost)
         {
             if (cmbViewBy.GetAttribute("value") == "Employee")
             {
                 txtEmpPro.Clear();
-                txtEmpPro.SendKeys(Emp);
-                //Thread.Sleep(5000);
+                txtEmpPro.EnterData(Emp);
+                EmpValue.waitAndClick();
                 txtNEProEmp.EnterData(Pro);
-                Thread.Sleep(5000);
-                ddIconExpense.waitAndClick();
-                Thread.Sleep(5000);
-                IWebElement va = propertiesCollection.driver.FindElement(By.XPath("//*[@id='divFullList']/div/table/tbody/tr[2]/td[2]"));
-                va.waitAndClick();
-                // txtELDescription.Clear();
-                //txtELDescription.EnterData(setMethods.randomDataGeneration(10));
-                txtUnits.Click();
-                waitMethods.WaitForAjax();
-                //txtUnits.Clear();
+                ddIconExpense.waitAndClick();                
+                ExpenseValue.waitAndClick();
+                txtUnits.waitAndClick();
+                txtUnits.Clear();
                 txtUnits.EnterData(units);
-                txtCost.Click();
-                //waitMethods.WaitForAjax();
-                //txtCost.Clear();
+                Thread.Sleep(2000);
+                txtCost.waitAndClick();
+                txtCost.Clear();
                 txtCost.EnterData(Cost);
-                //txtELDescription.Clear();
-                //txtELDescription.EnterData(setMethods.randomDataGeneration(10));
+                txtELDescription.Clear();
+                txtELDescription.EnterData(setMethods.randomDataGeneration(10));
             }
             else if (cmbViewBy.GetAttribute("value") == "Project")
             {
